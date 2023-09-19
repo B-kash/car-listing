@@ -1,4 +1,5 @@
-import { Field, ObjectType, ID } from '@nestjs/graphql';
+import { Field, ObjectType, ID, registerEnumType } from '@nestjs/graphql';
+import { GearBoxes } from '@prisma/client';
 
 @ObjectType({ description: 'Car' })
 export class Car {
@@ -13,8 +14,8 @@ export class Car {
   @Field()
   modelDetails: string; // this could be a long string careful when adding it to db
 
-  @Field()
-  gearBox: string; // should be a metadata field as its automatic manual and other
+  @Field(() => GearBoxes)
+  gearBox: GearBoxes; // should be a metadata field as its automatic manual and other
 
   @Field()
   color: string;
@@ -25,3 +26,7 @@ export class Car {
   @Field({ nullable: true })
   firstRegistrationDate?: Date;
 }
+
+registerEnumType(GearBoxes, {
+  name: 'GearBoxes',
+});
