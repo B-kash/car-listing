@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Car } from './models/car.model';
 import { Repository } from 'src/repository';
 
@@ -6,7 +6,15 @@ import { Repository } from 'src/repository';
 export class CarsService {
   constructor(private repository: Repository) {}
   async findOneByVIN(vin: string): Promise<Car> {
-    return {} as unknown as Car;
+    const car = await this.repository.car.findUnique({
+      where: {
+        vin,
+      },
+    });
+    if (!car) {
+      throw new NotFoundException(`Could not find the car with vin: ${vin}`);
+    }
+    return car;
   }
 
   async findAll(): Promise<Car[]> {
