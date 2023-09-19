@@ -3,7 +3,7 @@ import { GearBoxes } from '@prisma/client';
 
 @InputType()
 export class CarInput {
-  @Field({ nullable: true })
+  @Field()
   vin: string;
 
   @Field({ nullable: true })
