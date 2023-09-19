@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// this will be our model of car
+model Car {
+  id                    Int       @id @default(autoincrement())
+  vin                   String    @unique @map("VIN")
+  manufacturer          String
+  modelDetails          String?   @map("model_details") // in db it will be called model_details
+  gearBox               GearBoxes @map("gear_box_type")
+  color                 String
+  mielage               Float
+  firstRegistrationDate DateTime? @map("first_registration_date")
+}
+
+// For the sake of simplicity i am setting this as enum. This might as well be another table
+enum GearBoxes {
+  MANUAL
+  AUTOMATIC
+  OTHER
+}
