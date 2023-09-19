@@ -28,3 +28,17 @@ type Query {
   car(vin: String, manufacturer: String, modelDetails: String, gearBox: GearBoxes, color: String, mielage: Float, firstRegistrationDate: DateTime): [Car!]!
   cars: [Car!]!
 }
+
+type Mutation {
+  updateCar(input: CarInput!): Car!
+}
+
+input CarInput {
+  vin: String!
+  manufacturer: String
+  modelDetails: String
+  gearBox: GearBoxes
+  color: String
+  mielage: Float
+  firstRegistrationDate: DateTime
+}
