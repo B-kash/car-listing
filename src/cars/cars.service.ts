@@ -23,8 +23,7 @@ export class CarsService {
   }
 
   async findAll(): Promise<Car[]> {
-    console.log('Finding all cars');
-    return await this.repository.car.findMany();
+    return this.repository.car.findMany();
   }
 
   async addOrUpdate(car: CarInput): Promise<Car> {
