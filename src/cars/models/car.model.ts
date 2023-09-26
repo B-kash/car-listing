@@ -3,8 +3,6 @@ import { GearBoxes } from '@prisma/client';
 
 @ObjectType({ description: 'Car' })
 export class Car {
-  id: number;
-
   @Field((type) => ID)
   vin: string;
 
