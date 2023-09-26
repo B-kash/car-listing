@@ -1,7 +1,7 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { PrometheusController } from '@willsoto/nestjs-prometheus';
 import { Response } from 'express';
-import logger from 'src/commons/logger';
+import logger from '../commons/logger';
 
 @Controller()
 export class MetricsController extends PrometheusController {

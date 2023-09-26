@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -15,11 +12,13 @@ model Car {
   id                    Int       @id @default(autoincrement())
   vin                   String    @unique @map("VIN")
   manufacturer          String
-  modelDetails          String?   @map("model_details") // in db it will be called model_details
+  modelDetails          String?   @map("model_details") // in db it will be called model_details this is like this to simplify stuffs this can be another table with mutiple columns as well
   gearBox               GearBoxes @map("gear_box_type")
   color                 String
   mielage               Float
   firstRegistrationDate DateTime? @map("first_registration_date")
+  createdAt             DateTime  @default(now()) @map("created_at")
+  updatedAt             DateTime  @updatedAt @map("updated_at")
 }
 
 // For the sake of simplicity i am setting this as enum. This might as well be another table
