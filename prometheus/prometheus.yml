@@ -1,0 +1,10 @@
+global:
+  scrape_interval: "5s"
+scrape_configs:
+  - job_name: "car-listing"
+    static_configs:
+      - targets: ["host.docker.internal:4000"]
+    metrics_path: /metrics
+    honor_timestamps: true
+    scheme: http
+    follow_redirects: true

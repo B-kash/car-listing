@@ -4,6 +4,7 @@ import createMetricsPlugin from 'apollo-metrics';
 import { plugin as apolloTracingPlugin } from 'apollo-tracing';
 import { register } from 'prom-client';
 import { metrics } from './metrics';
+import { MetricsController } from './metrics.controller';
 
 export const TRACING_PLUGIN_KEY = 'TRACING_PLUGIN_KEY';
 export const METRICS_PLUGIN_KEY = 'METRICS_PLUGIN_KEY';
@@ -14,6 +15,7 @@ export const METRICS_PLUGIN_KEY = 'METRICS_PLUGIN_KEY';
       defaultLabels: {
         app: 'car-listings',
       },
+      controller: MetricsController,
     }),
   ],
   providers: [
