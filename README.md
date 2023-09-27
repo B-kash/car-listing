@@ -12,7 +12,7 @@
 
 For First time running the service.
 
-- Install all the required dependencies by using your favourite package manager. `yarn`.
+- Install all the required dependencies run `yarn`.
 - Copy .env.example to .env `cp .env.example .env` and update the `DATABASE_URL` in .env file.
 - Get postgress and prometheus running with docker `docker-compose up --build -d`
 - After postgress is up and running, we need to migrate the database for that run `npx prisma migrate dev`
