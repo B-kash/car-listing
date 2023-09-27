@@ -12,11 +12,10 @@
 
 For First time running the service.
 
-- Install all the required dependencies by using your favourite package manager. `yarn intall` or `npm install` or whatever you prefer.
+- Install all the required dependencies by using your favourite package manager. `yarn`.
 - Copy .env.example to .env `cp .env.example .env` and update the `DATABASE_URL` in .env file.
 - Get postgress and prometheus running with docker `docker-compose up --build -d`
 - After postgress is up and running, we need to migrate the database for that run `npx prisma migrate dev`
-- To seed the data on the database run `npx prisma db seed`
 
 These steps are only needed for first time setup of the service.
 Now to run the service, all you need to do is
