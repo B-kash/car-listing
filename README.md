@@ -22,13 +22,13 @@ Now to run the service, all you need to do is
 
 ```
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
 
 After the service is run, by default you can access the service in `localhost:4000`.
@@ -40,10 +40,10 @@ Right now for the sake of simplicity, I am only reporting the time it took to qu
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn test
 
 # test coverage
-$ npm run test:cov
+$ yarn test:cov
 ```
 
 ## What next?
