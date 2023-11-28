@@ -37,6 +37,7 @@
     "class-validator": "^0.14.0",
     "global": "^4.4.0",
     "graphql": "^16.8.1",
+    "kafkajs": "^2.2.4",
     "pino": "^8.15.1",
     "prom-client": "^14.2.0",
     "reflect-metadata": "^0.1.13",

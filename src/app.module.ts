@@ -11,6 +11,7 @@ import {
   TRACING_PLUGIN_KEY,
 } from './metrics/metrics.module';
 import { ApolloServerPlugin } from '@apollo/server';
+import { KafkaModule } from './kafka/kafka.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { ApolloServerPlugin } from '@apollo/server';
       }),
       inject: [TRACING_PLUGIN_KEY, METRICS_PLUGIN_KEY],
     }),
+    KafkaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
