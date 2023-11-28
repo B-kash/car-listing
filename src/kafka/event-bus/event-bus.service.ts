@@ -26,7 +26,7 @@ export class EventBusService {
     handler: (payload: KafkaMessage) => Promise<void>,
   ) {
     this.events[eventName] = handler;
-    this.consumer.consume(
+    return this.consumer.consume(
       'kafka-nestjs',
       { topics: [eventName], fromBeginning: true },
       {
@@ -35,8 +35,11 @@ export class EventBusService {
     );
   }
 
-  emit<K extends EVENT_TYPES>(topicName: K, payload: EVENT_PAYLOAD_MAP[K]) {
-    this.producer.produce({
+  async emit<K extends EVENT_TYPES>(
+    topicName: K,
+    payload: EVENT_PAYLOAD_MAP[K],
+  ) {
+    return this.producer.produce({
       topic: topicName,
       messages: [{ ...payload, value: JSON.stringify(payload.value) }],
     });

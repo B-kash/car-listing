@@ -12,12 +12,14 @@ import {
 } from './metrics/metrics.module';
 import { ApolloServerPlugin } from '@apollo/server';
 import { KafkaModule } from './kafka/kafka.module';
+import { CachingModule } from './caching/caching.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    CachingModule,
     CarsModule,
     MetricsModule,
     GraphQLModule.forRootAsync<ApolloDriverConfig>({

@@ -38,6 +38,17 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+# redis for cache
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+
 # prometheus for metris
   prometheus:
     image: prom/prometheus:latest
@@ -52,4 +63,6 @@ services:
 
 volumes:
   postgres_db:
+    driver: local
+  cache:
     driver: local
